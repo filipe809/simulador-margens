@@ -190,4 +190,288 @@
                                     <div class="font-semibold text-slate-600 border-b border-slate-200 pb-1">Deduções Venda</div>
                                     <div class="flex justify-between text-slate-600"><span>(-) PIS Líquido (<span id="cur-pis-pct">0%</span>)</span><span id="cur-pis-val">R$ 0,00</span></div>
                                     <div class="flex justify-between text-slate-600"><span>(-) COFINS Líquido (<span id="cur-cofins-pct">0%</span>)</span><span id="cur-cofins-val">R$ 0,00</span></div>
-                                    <div class="flex justify-between text-slate-600"><span>(-) Frete Venda (<span id="cur-
+                                    <div class="flex justify-between text-slate-600"><span>(-) Frete Venda (<span id="cur-frete-pct">0%</span>)</span><span id="cur-frete-val">R$ 0,00</span></div>
+                                    <div class="flex justify-between text-slate-600"><span>(-) Comissões (<span id="cur-comis-pct">0%</span>)</span><span id="cur-comis-val">R$ 0,00</span></div>
+                                    <div class="flex justify-between text-slate-600"><span>(-) Desp. Fixa (<span id="cur-desp-pct">0%</span>)</span><span id="cur-desp-val">R$ 0,00</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 border-t border-slate-200 p-4 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-slate-500 font-medium">Margem Bruta</span>
+                                <div class="text-right"><div id="cur-mb-val" class="font-bold text-slate-800 text-xs md:text-sm">R$ 0,00</div><div id="cur-mb-pct" class="text-[10px] md:text-xs font-semibold text-slate-600">0%</div></div>
+                            </div>
+                            <div class="flex justify-between items-center pt-2 border-t border-slate-200">
+                                <span class="text-xs text-slate-700 font-bold">Margem Líquida</span>
+                                <div class="text-right"><div id="cur-ml-val" class="font-bold text-emerald-700 text-sm md:text-base">R$ 0,00</div><div id="cur-ml-pct" class="text-[10px] md:text-xs font-bold text-emerald-700">0%</div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scenario 2: Simulated -->
+                    <div class="bg-white rounded-xl shadow-sm border-2 border-blue-500 overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="bg-blue-600 text-white px-4 py-2.5 flex justify-between items-center">
+                                <h3 class="font-bold text-xs md:text-sm flex items-center gap-2"><i data-lucide="sliders" class="w-4 h-4"></i> Cenário Simulado</h3>
+                                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-700 text-blue-100 uppercase">Simulação</span>
+                            </div>
+                            <div class="p-4 space-y-3 text-xs md:text-sm">
+                                <div class="flex justify-between items-center pb-2 border-b border-slate-100">
+                                    <span class="text-slate-600 font-medium">Novo Preço</span>
+                                    <span id="sim-price-display" class="font-bold text-blue-600 text-sm md:text-base">R$ 0,00</span>
+                                </div>
+                                <div class="flex justify-between items-center text-[11px] md:text-xs text-slate-500">
+                                    <span>Custo Total / Recuperável</span>
+                                    <span id="sim-cost" class="font-medium text-slate-700">R$ 0,00</span>
+                                </div>
+                                <div class="bg-blue-50/50 p-2.5 rounded-lg space-y-1.5 text-[11px] md:text-xs">
+                                    <div class="font-semibold text-blue-900 border-b border-blue-100 pb-1">Deduções Recalculadas</div>
+                                    <div class="flex justify-between text-slate-700"><span>(-) PIS Líquido (<span id="sim-pis-pct">0%</span>)</span><span id="sim-pis-val">R$ 0,00</span></div>
+                                    <div class="flex justify-between text-slate-700"><span>(-) COFINS Líquido (<span id="sim-cofins-pct">0%</span>)</span><span id="sim-cofins-val">R$ 0,00</span></div>
+                                    <div class="flex justify-between text-slate-700"><span>(-) Frete Venda (<span id="sim-frete-pct">0%</span>)</span><span id="sim-frete-val">R$ 0,00</span></div>
+                                    <div class="flex justify-between text-slate-700"><span>(-) Comissões (<span id="sim-comis-pct">0%</span>)</span><span id="sim-comis-val">R$ 0,00</span></div>
+                                    <div class="flex justify-between text-slate-700"><span>(-) Desp. Fixa (<span id="sim-desp-pct">0%</span>)</span><span id="sim-desp-val">R$ 0,00</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-blue-50/50 border-t border-blue-100 p-4 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-blue-900 font-medium">Margem Bruta Simulado</span>
+                                <div class="text-right"><div id="sim-mb-val" class="font-bold text-slate-800 text-xs md:text-sm">R$ 0,00</div><div id="sim-mb-pct" class="text-[10px] md:text-xs font-semibold text-slate-700">0%</div></div>
+                            </div>
+                            <div class="flex justify-between items-center pt-2 border-t border-blue-200">
+                                <span class="text-xs text-blue-950 font-bold block">Margem Líquida Simulado</span>
+                                <div class="text-right">
+                                    <div id="sim-ml-val" class="font-bold text-emerald-700 text-base md:text-lg">R$ 0,00</div>
+                                    <div id="sim-ml-pct" class="text-[10px] md:text-xs font-bold text-emerald-700">0%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 2: MULTI-ITEM NEGOTIATION SIMULATOR -->
+        <div id="view-batch" class="hidden space-y-4 md:space-y-6">
+
+            <!-- Search and Controls Header -->
+            <div class="bg-white p-3 md:p-4 rounded-xl shadow-sm border border-slate-200 space-y-3">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-3">
+                    <div class="relative w-full md:w-96">
+                        <i data-lucide="plus-circle" class="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="batch-search-input" placeholder="Buscar produto para o lote..." class="w-full pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <!-- Global Discount -->
+                    <div class="flex items-center justify-between gap-2 bg-slate-50 p-2 rounded-lg border border-slate-200 w-full md:w-auto">
+                        <span class="text-xs font-medium text-slate-600 shrink-0">Desconto Lote:</span>
+                        <div class="flex items-center gap-1">
+                            <input type="number" id="global-discount-input" placeholder="0" class="w-16 px-2 py-1 text-xs border border-slate-300 rounded text-center font-bold bg-white">
+                            <span class="text-xs text-slate-500">%</span>
+                        </div>
+                        <button id="apply-global-discount-btn" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-1 rounded font-medium transition-colors">Aplicar</button>
+                    </div>
+                </div>
+
+                <div id="batch-results-list" class="max-h-44 overflow-y-auto custom-scrollbar divide-y divide-slate-100 hidden bg-slate-50 rounded-lg border border-slate-200 text-xs md:text-sm"></div>
+            </div>
+
+            <!-- Items List Container -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="px-4 py-3 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+                    <h3 class="font-bold text-slate-800 text-xs md:text-sm flex items-center gap-2">
+                        <i data-lucide="list" class="w-4 h-4 text-blue-600"></i>
+                        Itens na Negociação
+                    </h3>
+                    <button id="clear-batch-btn" class="text-xs text-rose-600 hover:text-rose-800 font-medium flex items-center gap-1">
+                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        Limpar Tudo
+                    </button>
+                </div>
+
+                <!-- Desktop Table View -->
+                <div class="hidden md:block overflow-x-auto">
+                    <table class="w-full text-left text-xs text-slate-600">
+                        <thead class="bg-slate-100 text-slate-700 uppercase text-[10px] tracking-wider font-semibold border-b border-slate-200">
+                            <tr>
+                                <th class="p-3">Produto</th>
+                                <th class="p-3 text-center">Qtd</th>
+                                <th class="p-3 text-right">Preço Unit. (R$)</th>
+                                <th class="p-3 text-center">Frete (%)</th>
+                                <th class="p-3 text-center">Comis. (%)</th>
+                                <th class="p-3 text-center">Desp. (%)</th>
+                                <th class="p-3 text-right">Subtotal</th>
+                                <th class="p-3 text-right">Margem Líquida</th>
+                                <th class="p-3 text-center">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="batch-table-body" class="divide-y divide-slate-100 font-medium"></tbody>
+                    </table>
+                </div>
+
+                <!-- Mobile Cards View -->
+                <div id="batch-mobile-cards" class="md:hidden divide-y divide-slate-100"></div>
+
+                <div id="batch-empty-msg" class="p-6 md:p-8 text-center text-slate-400 text-xs">
+                    Nenhum produto no lote. Busque produtos acima para simular a proposta.
+                </div>
+            </div>
+
+            <!-- Consolidated Summary Dashboard -->
+            <div id="proposal-summary" class="hidden bg-slate-900 text-white rounded-xl shadow-lg p-4 md:p-6 space-y-4 md:space-y-6">
+                
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-800 pb-3 md:pb-4 gap-3">
+                    <div>
+                        <div class="text-[10px] md:text-xs font-semibold text-slate-400 uppercase tracking-wider">Resultado Consolidado do Pedido</div>
+                        <h4 class="text-base md:text-xl font-bold text-white">Análise Geral do Lote</h4>
+                    </div>
+                    <div id="viability-badge" class="px-3 py-1.5 rounded-lg font-bold text-xs uppercase tracking-wide flex items-center gap-1.5"></div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-4">
+                    <div class="bg-slate-800 p-3 md:p-4 rounded-lg border border-slate-700">
+                        <span class="text-[10px] md:text-xs text-slate-400 block mb-0.5">Faturamento Total</span>
+                        <div id="summary-revenue" class="text-base md:text-lg font-bold text-white">R$ 0,00</div>
+                    </div>
+                    <div class="bg-slate-800 p-3 md:p-4 rounded-lg border border-slate-700">
+                        <span class="text-[10px] md:text-xs text-slate-400 block mb-0.5">Custo Pedido</span>
+                        <div id="summary-cost" class="text-xs md:text-base font-semibold text-slate-300">R$ 0,00</div>
+                    </div>
+                    <div class="bg-slate-800 p-3 md:p-4 rounded-lg border border-slate-700">
+                        <span class="text-[10px] md:text-xs text-slate-400 block mb-0.5">Margem Bruta</span>
+                        <div id="summary-mb-val" class="text-xs md:text-base font-bold text-slate-200">R$ 0,00</div>
+                        <div id="summary-mb-pct" class="text-[10px] text-slate-400">0,00%</div>
+                    </div>
+                    <div class="bg-slate-800 p-3 md:p-4 rounded-lg border border-slate-700">
+                        <span class="text-[10px] md:text-xs text-slate-400 block mb-0.5">Margem Líquida</span>
+                        <div id="summary-ml-val" class="text-base md:text-lg font-bold text-emerald-400">R$ 0,00</div>
+                        <div id="summary-ml-pct" class="text-[10px] md:text-xs font-bold text-emerald-400">0,00%</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-900 border-t border-slate-800 z-50 flex justify-around items-center px-2 py-2">
+        <button id="mob-tab-single" class="flex-1 flex flex-col items-center justify-center py-1 text-blue-400 font-semibold text-[11px] gap-1">
+            <i data-lucide="search" class="w-5 h-5"></i>
+            <span>Item Único</span>
+        </button>
+        <button id="mob-tab-batch" class="flex-1 flex flex-col items-center justify-center py-1 text-slate-400 text-[11px] gap-1 relative">
+            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+            <span>Lote / Pedido</span>
+            <span id="mob-cart-badge" class="hidden absolute top-0 right-6 bg-blue-600 text-white text-[9px] font-bold px-1.5 py-0.2 rounded-full">0</span>
+        </button>
+    </nav>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // IndexedDB Storage Engine
+        const DB_NAME = 'SimuladorPrecosDB';
+        const DB_VERSION = 1;
+        const STORE_NAME = 'produtos';
+
+        function openDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, DB_VERSION);
+                request.onupgradeneeded = (e) => {
+                    const db = e.target.result;
+                    if (!db.objectStoreNames.contains(STORE_NAME)) {
+                        db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+                    }
+                };
+                request.onsuccess = (e) => resolve(e.target.result);
+                request.onerror = (e) => reject(e.target.error);
+            });
+        }
+
+        function saveProductsToDB(products) {
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const db = await openDB();
+                    const tx = db.transaction(STORE_NAME, 'readwrite');
+                    const store = tx.objectStore(STORE_NAME);
+                    
+                    const clearReq = store.clear();
+                    clearReq.onsuccess = () => {
+                        for (const prod of products) {
+                            store.put(prod);
+                        }
+                    };
+                    
+                    tx.oncomplete = () => resolve();
+                    tx.onerror = (e) => reject(e.target.error || tx.error);
+                } catch (err) {
+                    reject(err);
+                }
+            });
+        }
+
+        function loadProductsFromDB() {
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const db = await openDB();
+                    const tx = db.transaction(STORE_NAME, 'readonly');
+                    const store = tx.objectStore(STORE_NAME);
+                    const req = store.getAll();
+                    req.onsuccess = () => resolve(req.result || []);
+                    req.onerror = (e) => reject(e.target.error || tx.error);
+                } catch (err) {
+                    reject(err);
+                }
+            });
+        }
+
+        // Global State
+        let productsData = [];
+        let selectedProduct = null;
+        let batchCart = [];
+
+        // Formatting Utils
+        const formatBRL = (val) => (isNaN(val) || val === null ? 'R$ 0,00' : val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }));
+        const formatPCT = (val) => (isNaN(val) || val === null ? '0,00%' : (val * 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%');
+
+        // Robust Number Parser (Handles numbers, BR formatted strings, R$ prefixes)
+        const parseNum = (val) => {
+            if (typeof val === 'number') return isNaN(val) ? 0 : val;
+            if (!val) return 0;
+            let str = String(val).replace(/R\$\s?/gi, '').replace(/\s/g, '').trim();
+            if (str.includes(',') && str.includes('.')) {
+                str = str.replace(/\./g, '').replace(',', '.');
+            } else if (str.includes(',')) {
+                str = str.replace(',', '.');
+            }
+            const num = parseFloat(str);
+            return isNaN(num) ? 0 : num;
+        };
+
+        // DOM Elements
+        const excelFileInput = document.getElementById('excel-file');
+        const uploadLabel = document.getElementById('upload-label');
+        const emptyState = document.getElementById('empty-state');
+        const dbStatus = document.getElementById('db-status');
+        const dbStatusText = document.getElementById('db-status-text');
+        
+        const viewSingle = document.getElementById('view-single');
+        const viewBatch = document.getElementById('view-batch');
+        
+        const deskTabSingle = document.getElementById('desk-tab-single');
+        const deskTabBatch = document.getElementById('desk-tab-batch');
+        const mobTabSingle = document.getElementById('mob-tab-single');
+        const mobTabBatch = document.getElementById('mob-tab-batch');
+        const deskCartBadge = document.getElementById('desk-cart-badge');
+        const mobCartBadge = document.getElementById('mob-cart-badge');
+
+        const searchInput = document.getElementById('search-input');
+        const totalCount = document.getElementById('total-count');
+        const productListContainer = document.getElementById('product-list-container');
+        const productResultsList = document.getElementById('product-results-list');
+        const selectedProductCard = document.getElementById('selected-product-card');
+
+        // Single View Inputs
+        const simPriceInput = document.getElementById
