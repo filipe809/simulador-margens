@@ -59,7 +59,7 @@
 
                     <label class="cursor-pointer bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-2 py-1.5 md:px-3 md:py-1.5 rounded-lg font-medium text-xs transition-all flex items-center gap-1.5 shrink-0">
                         <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
-                        <span id="upload-label" class="hidden sm:inline">Atualizar Base</span>
+                        <span id="upload-label" class="hidden sm:inline">Carregar Base</span>
                         <input type="file" id="excel-file" accept=".xlsx, .xls" class="hidden">
                     </label>
                 </div>
@@ -208,7 +208,7 @@
                         </div>
                     </div>
 
-                    <!-- Scenario 2: Simulated -->
+                    <!-- Scenario 2: Simulated Standard Visuals -->
                     <div class="bg-white rounded-xl shadow-sm border-2 border-blue-500 overflow-hidden flex flex-col justify-between">
                         <div>
                             <div class="bg-blue-600 text-white px-4 py-2.5 flex justify-between items-center">
@@ -354,6 +354,13 @@
 
         </div>
 
+        <!-- Footer / Hard Reset Option -->
+        <div class="mt-8 text-center">
+            <button id="reset-db-btn" class="text-[11px] text-slate-400 hover:text-rose-500 underline transition-colors">
+                Limpar Banco de Dados Local (Caso ocorra algum travamento)
+            </button>
+        </div>
+
     </main>
 
     <!-- Mobile Bottom Navigation Bar -->
@@ -371,7 +378,7 @@
 
     <!-- JavaScript Application Logic -->
     <script>
-        // IndexedDB Storage Engine
+        // Safe Memory Storage Fallback + IndexedDB
         const DB_NAME = 'SimuladorPrecosDB';
         const DB_VERSION = 1;
         const STORE_NAME = 'produtos';
@@ -436,7 +443,7 @@
         const formatBRL = (val) => (isNaN(val) || val === null ? 'R$ 0,00' : val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }));
         const formatPCT = (val) => (isNaN(val) || val === null ? '0,00%' : (val * 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%');
 
-        // Robust Number Parser (Handles numbers, BR formatted strings, R$ prefixes)
+        // Robust Number Parser
         const parseNum = (val) => {
             if (typeof val === 'number') return isNaN(val) ? 0 : val;
             if (!val) return 0;
@@ -461,17 +468,4 @@
         const viewBatch = document.getElementById('view-batch');
         
         const deskTabSingle = document.getElementById('desk-tab-single');
-        const deskTabBatch = document.getElementById('desk-tab-batch');
-        const mobTabSingle = document.getElementById('mob-tab-single');
-        const mobTabBatch = document.getElementById('mob-tab-batch');
-        const deskCartBadge = document.getElementById('desk-cart-badge');
-        const mobCartBadge = document.getElementById('mob-cart-badge');
-
-        const searchInput = document.getElementById('search-input');
-        const totalCount = document.getElementById('total-count');
-        const productListContainer = document.getElementById('product-list-container');
-        const productResultsList = document.getElementById('product-results-list');
-        const selectedProductCard = document.getElementById('selected-product-card');
-
-        // Single View Inputs
-        const simPriceInput = document.getElementById
+        const deskTabBatch
