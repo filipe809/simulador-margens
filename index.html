@@ -124,8 +124,7 @@
                         <div>
                             <div class="flex flex-wrap items-center gap-1.5 mb-1">
                                 <span id="prod-code" class="bg-blue-100 text-blue-800 text-[10px] md:text-xs font-bold px-2 py-0.5 rounded">CÓD: -</span>
-                                <span id="prod-ncm" class="bg-slate-100 text-slate-600 text-[10px] md:text-xs font-medium px-2 py-0.5 rounded">NCM: -</span>
-                                <span id="prod-meta" class="bg-purple-100 text-purple-800 text-[10px] md:text-xs font-bold px-2 py-0.5 rounded">META MARGEM: 0,00%</span>
+                                <span id="prod-ncm" class="bg-slate-100 text-slate-600 text-[10px] md:text-xs font-medium px-2 py-0.5 rounded">NCM: -</span>     
                             </div>
                             <h2 id="prod-name" class="text-lg md:text-2xl font-bold text-slate-800 leading-snug">Nome do Produto</h2>
                         </div>
@@ -333,7 +332,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-2.5 md:gap-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-4">
                     <div class="bg-slate-800 p-3 md:p-4 rounded-lg border border-slate-700">
                         <span class="text-[10px] md:text-xs text-slate-400 block mb-0.5">Faturamento Total</span>
                         <div id="summary-revenue" class="text-base md:text-lg font-bold text-white">R$ 0,00</div>
@@ -348,10 +347,6 @@
                         <div id="summary-mb-pct" class="text-[10px] text-slate-400">0,00%</div>
                     </div>
                     <div class="bg-slate-800 p-3 md:p-4 rounded-lg border border-slate-700">
-                        <span class="text-[10px] md:text-xs text-purple-300 block mb-0.5">Meta Média Pedido</span>
-                        <div id="summary-target-pct" class="text-base md:text-lg font-bold text-purple-300">0,00%</div>
-                    </div>
-                    <div class="bg-slate-800 p-3 md:p-4 rounded-lg border border-slate-700 col-span-2 sm:col-span-1">
                         <span class="text-[10px] md:text-xs text-slate-400 block mb-0.5">Margem Líquida</span>
                         <div id="summary-ml-val" class="text-base md:text-lg font-bold text-white">R$ 0,00</div>
                         <div id="summary-ml-pct" class="text-[10px] md:text-xs text-slate-400">0,00%</div>
@@ -895,7 +890,6 @@
             let totalCost = 0;
             let totalMB = 0;
             let totalML = 0;
-            let totalTargetML = 0;
 
             batchCart.forEach((item, index) => {
                 const p = item.product;
@@ -905,13 +899,11 @@
                 const lineCost = p.custoTotal * item.qty;
                 const lineMB = sim.mbVal * item.qty;
                 const lineML = sim.mlVal * item.qty;
-                const lineTargetML = (p.margemDesejadaPct * item.simPrice) * item.qty;
 
                 totalRev += lineRev;
                 totalCost += lineCost;
                 totalMB += lineMB;
                 totalML += lineML;
-                totalTargetML += lineTargetML;
 
                 const mlColorClass = "text-slate-800";
 
@@ -1052,16 +1044,14 @@
                 });
             });
 
-            // Update Proposal Dashboard with Target Benchmark
+            // Update Proposal Dashboard
             const overallMbPct = totalRev > 0 ? totalMB / totalRev : 0;
             const overallMlPct = totalRev > 0 ? totalML / totalRev : 0;
-            const overallTargetMlPct = totalRev > 0 ? totalTargetML / totalRev : 0;
 
             document.getElementById('summary-revenue').textContent = formatBRL(totalRev);
             document.getElementById('summary-cost').textContent = formatBRL(totalCost);
             document.getElementById('summary-mb-val').textContent = formatBRL(totalMB);
             document.getElementById('summary-mb-pct').textContent = formatPCT(overallMbPct);
-            document.getElementById('summary-target-pct').textContent = formatPCT(overallTargetMlPct);
             
             document.getElementById('summary-ml-val').textContent = formatBRL(totalML);
             document.getElementById('summary-ml-pct').textContent = formatPCT(overallMlPct);
